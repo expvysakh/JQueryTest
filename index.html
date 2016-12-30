@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+  <head>
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+          <link rel="stylesheet" type="text/css" href="stylesheet.css">
+
+           <script rel="form.js" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>  
+
+           <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+                      <script type="text/javascript" src="form.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  
+  <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.min.js"></script>
+
+    
+  </head>
+
+  <body>
+    <div class = "col-md-12">
+      <title>
+          Employee Registration
+      </title>    
+   </div>
+   <div class = "col-md-12">
+          
+          <div class="back">
+              
+              
+                    <div class = "row">
+
+                    <div class="col-md-2">
+                    </div>   
+
+                    <div class="col-md-8">   
+                    
+                      <fieldset>
+                            <legend>Employee Registration</legend>
+                            <h3> Employee Details</h3> 
+
+                            <table class="table table-striped" id ="tabid">
+                              <thead>
+                              <tr>
+                                  <th>Emp ID</th>
+                                  <th>Name</th>                                  
+                                  <th>Designation</th>
+                                  <th>Total Salary</th>
+                                  <th id="thwidth">Actions</th>
+                              </tr>
+                              </thead>
+                              <tbody id="tablebody">
+                              </tbody>
+                            </table>
+                      </fieldset>
+                  
+                    </div>
+                  
+
+                    </div> 
+                    <div class="row">
+                        <br/><br /><br />
+                    </div>    
+                    <div class = "row">
+                      
+                          <div class="col-md-3">
+                          </div>  
+                          <div class="col-md-6 employee form-group">    
+                                
+                                  <form id = "register">
+                                              
+                                    <label>Emp ID</label><input type="text" name="id" id="id" placeholder="Emp id" required/> 
+                                    <label>Name</label><input type="text" name="name" id="name" placeholder="Name" required/> 
+                                    <label>Designation</label><input type = "text" name="desi" id= "desi" placeholder="Designation" required>
+                                    <label>Basic Pay</label><input type="number" name="bp" id="bp" placeholder="0" required/> 
+                                    <label>DA</label><input type="number" name="da" id="da" placeholder="0" required/> 
+                                    <label>HRA</label><input type="number" name="hra" id="hra" placeholder="0" required/>   
+                                    <label>Med Allowance</label><input type="number" name="med" id="med" placeholder="0" required/>   
+                                    <label>Total salary</label><input type="number" name="total" id="total" required/>   
+                                     
+                                  </form>
+                          </div>  
+                          <div class="col-md-3">
+                          </div> 
+                                        
+                    </div>      
+                    <div class = "row foot">          
+                          <div class="col-md-3">
+                          </div>  
+                            <div class="col-md-2">                                  
+                          <button type="button" class="btn btn-success" id = "new" name = "new">New</button> 
+                          </div>
+                          <div class="col-md-2">
+                          <button type="submit" class="sav btn btn-success" id = "save" name = "save">Save</button> 
+                          </div>
+                          <div class="col-md-2">
+                          <button type="button" class="btn btn-danger" id = "cancel" name = "cancel">Cancel</button>
+                          </div>
+                          <div class="col-md-3">
+                          </div> 
+                
+                    </div>   
+                                      
+                        </form>            
+
+        <div id="dialog-message" title="Employee added">
+              <p>
+                  <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
+                  Employee added successfully.  </p>
+          </div>                         
+      <!--                 
+                <div modal:true id="exit">
+                <p id="success">Successfully inserted</p>
+                <button type="button" class="btn btn-success" id = "ok">Ok</button> 
+                                    
+                </div>  -->   
+
+
+
+          </div> <!back-->
+   </div>       
+  </body>    
+</html>    

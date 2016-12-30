@@ -1,0 +1,42 @@
+legend{
+    text-align: center;
+}
+
+input,select,#date,#dept{
+    width: 100%;
+    
+}
+#new{
+    margin-top:10%;
+    margin-left: 50%;
+}
+
+#save{
+    margin-top:10%;
+    margin-left: 30%;
+}
+
+#cancel{
+    margin-top:10%;
+    margin-left: 10%;
+}
+.foot{
+    margin-bottom: 20%;
+}
+h3{
+    text-align: center;
+
+}
+
+label{
+	display: inline-block;
+	width: 140%;
+	text-align: left;
+} 
+
+#dialog-message{
+    display:none;
+}
+#thwidth{
+    width: 20%;
+}
