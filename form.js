@@ -183,7 +183,16 @@ $(document).ready(function () {
     }); 
 
             
-          $(this).closest ('tr').remove ();      
+         for(var i = 0; i < emps.length; i++) {
+            var obj = emps[i];
+                 console.log(obj);
+            if(obj.id === empid) {
+                emps.splice(i, 1);
+                emp_ids.splice(i,1);
+                $("#id").prop('disabled',true);
+                $(this).closest ('tr').remove ();
+            }
+        }           
          
 
  });
