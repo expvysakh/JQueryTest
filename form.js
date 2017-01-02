@@ -15,7 +15,7 @@ $(document).ready(function () {
 
      })
  
-    $(".sav").click(function (e) {
+    $("#save").click(function (e) {
        
         $.validator.setDefaults({
         debug: true,
@@ -55,7 +55,10 @@ $(document).ready(function () {
              required: true,
              maxlength: 10,
              number: true      
-        },            
+        }, 
+         invalidHandler: function(form, validator) {
+            alert('invalidHandler');
+        }          
 
         }
         });
@@ -96,22 +99,30 @@ $(document).ready(function () {
                 var hra = $("#hra").val(); 
                 var med = $("#med").val(); 
                
-                $("#total").prop('disabled',false); 
-               
-                $('#total').val(parseInt($('#bp').val()) + parseInt($('#da').val()) + parseInt($('#hra').val()) + parseInt($('#med').val())); 
+               // $("#total").prop('disabled',false); 
+                //$('#total').val(parseInt($('#bp').val()) + parseInt($('#da').val()) + parseInt($('#hra').val()) + parseInt($('#med').val())); 
+                
                 var total = parseInt(bp)+ parseInt(da)+parseInt(hra)+parseInt(med);
+                $('#total').val(total);
                 console.log(bp);
                 console.log(da);
                 console.log(hra);
                 console.log(med);
+
+                $("#med").change(function(){
+                var total = parseInt(bp)+ parseInt(da)+parseInt(hra)+parseInt(med);
+                $('#total').val(total);
+                });
                
                 var total = $("#total").val();
                 emp = {"id":id,"name":name,"designation":desi,"bp":bp,"da":da,"hra":hra,"med":med,"total":total};
                 emps.push(emp);
-                 
-
-                 $("#tablebody").append('<tr><td class="ids">' + id + '</td><td>' + name + '</td><td>' + desi + '</td><td>' + total +
-                 '</td><td>'+'<button type="button" class ="buttontest" id ="edit" onclick="abc()" name = "edit">Edit</button><button type="button" class="deleteclass btn btn-danger" id = "delete" name = "delete">delete</button>' +'</td><tr');
+                
+                var myjson=JSON.stringify(emps);
+                localStorage.setItem(001, myjson); 
+                
+                 $("#tablebody").append('<tr><td class="ids">' + id + '</td><td class = "names">' + name + '</td><td class="desi">' + desi + '</td><td>' + total +
+                 '</td><td>'+'<button type="button" class ="edit btn btn-danger" name = "edit">Edit</button><button type="button" class="delete btn btn-danger" name = "delete">delete</button>' +'</td><tr');
 
                   $( "#dialog-message" ).dialog(
                     {
@@ -143,25 +154,43 @@ $(document).ready(function () {
         $("#register").trigger('reset');
     })
 
-     
+     //delete button  
+     $('#tabid').on('click', '.delete', function(){
+        if(confirm("Are you sure you want to delete?")){
+            $(this).closest ('tr').remove ();}
+    });
 
+     //edit function
+
+    $('#tabid').on('click', '.edit', function(){
+    
+    var empid =  $('.edit').parent().siblings().filter(".ids").text();
+    console.log("this"+empid);              
+    $('#id').val($(this).parent().siblings().filter(".ids").text());
+    $('#name').val($(this).parent().parent().find('.names').text());
+    $('#desi').val($(this).parent().parent().find('.desi').text());
+    
+    $.each(emps, function (index, value) {
+    
+        if (empid === value.id) {
+            $('#bp').val(value.bp);
+            $('#da').val(value.da);
+            $('#hra').val(value.hra);
+            $('#med').val(value.med);
+            $('#total').val(value.total);   
+            
+        }
+    }); 
+
+            
+          $(this).closest ('tr').remove ();      
+         
+
+ });
     
 
     
 }); 
-
-function abc()
-{
-        alert(2);
-        console.log($('.buttontest').parent().siblings().filter(".ids").text());
-}
-
-
-  
-
- 
-  
-
 
    function clear() {
     $('#empid').val('');
